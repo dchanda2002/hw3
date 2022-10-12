@@ -4,6 +4,33 @@
 #include "llrec.h"
 using namespace std;
 
+struct remOdd{
+	bool operator()(int inp){
+		if(inp % 2 != 0){
+			return true;
+		}
+		return false;
+	}
+};
+
+struct remEven{
+	bool operator()(int inp){
+		if(inp % 2 == 0){
+			return true;
+		}
+		return false;
+	}
+};
+
+struct remMoreTen{
+	bool operator()(int inp){
+		if(inp > 10){
+			return true;
+		}
+		return false;
+	}
+};
+
 /**
  * Reads integers (separated by whitespace) from a file
  * into a linked list.
@@ -87,7 +114,22 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
 
+    // Node* small ;
+    // Node* big;
+    // llpivot(head, small, big, 6);
+    // print(small);
+    // print(big);
+    // print(head);
 
+		remEven ev;
+		remOdd od;
+		remMoreTen te;
+
+		Node* noOdds = llfilter(head, od);
+		print(noOdds);
+		Node *noTens = llfilter(noOdds, te);
+		print(noTens);
+    
 
     
     return 0;
