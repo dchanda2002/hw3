@@ -10,6 +10,9 @@ all: llrec-test
 llrec-test: llrec-test.cpp llrec.h llrec.cpp
 	$(CXX) $(CXXFLAGS) llrec-test.cpp llrec.cpp -o llrec-test
 
+stack-test: stack.h stack_test.cpp
+	$(CXX) $(CXXFLAGS) stack_test.cpp -o stack-test
+
 valgrind: 
 	$(VALGRIND)
 

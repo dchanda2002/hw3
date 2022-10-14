@@ -4,33 +4,6 @@
 #include "llrec.h"
 using namespace std;
 
-struct remOdd{
-	bool operator()(int inp){
-		if(inp % 2 != 0){
-			return true;
-		}
-		return false;
-	}
-};
-
-struct remEven{
-	bool operator()(int inp){
-		if(inp % 2 == 0){
-			return true;
-		}
-		return false;
-	}
-};
-
-struct remMoreTen{
-	bool operator()(int inp){
-		if(inp > 10){
-			return true;
-		}
-		return false;
-	}
-};
-
 /**
  * Reads integers (separated by whitespace) from a file
  * into a linked list.
@@ -94,7 +67,32 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
+struct remOdd{
+	bool operator()(int inp){
+		if(inp % 2 != 0){
+			return true;
+		}
+		return false;
+	}
+};
 
+struct remEven{
+	bool operator()(int inp){
+		if(inp % 2 == 0){
+			return true;
+		}
+		return false;
+	}
+};
+
+struct remMoreTen{
+	bool operator()(int inp){
+		if(inp > 10){
+			return true;
+		}
+		return false;
+	}
+};
 
 
 
@@ -114,21 +112,33 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
 
-    // Node* small ;
-    // Node* big;
-    // llpivot(head, small, big, 6);
-    // print(small);
-    // print(big);
-    // print(head);
 
-		remEven ev;
-		remOdd od;
-		remMoreTen te;
+		// to test out llpivot, uncomment this
 
-		Node* noOdds = llfilter(head, od);
-		print(noOdds);
-		Node *noTens = llfilter(noOdds, te);
-		print(noTens);
+    Node* small;
+    Node* big;
+    llpivot(head, small, big, 6);
+    print(small);
+    print(big);
+    print(head);
+
+		Node* bigger;
+		llpivot(big, small, bigger, 14);
+		print(small);
+    print(bigger);
+    print(big);
+
+
+		// to test out llfilter, uncomment this
+
+		// remEven ev;
+		// remOdd od;
+		// remMoreTen te;
+
+		// Node* noOdds = llfilter(head, od);
+		// print(noOdds);
+		// Node *noTens = llfilter(noOdds, te);
+		// print(noTens);
     
 
     
