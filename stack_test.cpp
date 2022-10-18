@@ -77,7 +77,8 @@ int main(){
 	cout << "String Stack Size: " << stack_strings.size() << endl;
 	cout << "Double Stack Size: " << stack_doubles.size() << endl;
 
-	// checked, throw works!
+	//checked, throw works!
+	
 	// cout << "Int Stack Top: " << stack_ints.top() << endl;
 	// cout << "String Stack Top: " << stack_strings.top() << endl;
 	// cout << "Double Stack Len: " << stack_doubles.top() << endl;

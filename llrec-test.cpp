@@ -67,6 +67,8 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
+// making structs for three functors: to filter evens, odds, and integers greater than 10
+
 struct remOdd{
 	bool operator()(int inp){
 		if(inp % 2 != 0){
@@ -113,35 +115,37 @@ int main(int argc, char* argv[])
     // Test out your linked list code
 
 
-		// to test out llpivot, uncomment this
+    // to test out llpivot, uncomment this
 
-    Node* small;
-    Node* big;
-    llpivot(head, small, big, 6);
-    print(small);
-    print(big);
-    print(head);
+    // Node* small;
+    // Node* big;
+    // llpivot(head, small, big, 6);
+    // print(small);
+    // print(big);
+    // print(head);
 
-		Node* bigger;
-		llpivot(big, small, bigger, 14);
-		print(small);
-    print(bigger);
-    print(big);
+		// dealloc(small);
+		// dealloc(big);
+		// dealloc(head);
 
+    // to test out llfilter, uncomment this
 
-		// to test out llfilter, uncomment this
+    remEven ev;
+    remOdd od;
+    remMoreTen te;
 
-		// remEven ev;
-		// remOdd od;
-		// remMoreTen te;
-
-		// Node* noOdds = llfilter(head, od);
-		// print(noOdds);
-		// Node *noTens = llfilter(noOdds, te);
-		// print(noTens);
+    Node* noOdds = llfilter(head, od);
+    cout << "Without odd numbers: ";
+		print(noOdds);
+    Node* noTens = llfilter(noOdds, te);
+		cout << "Without numbers greater than 10: ";
+    print(noTens);
+		Node* noEvens = llfilter(noTens, ev);
+		cout << "Without even numbers (should be empty): ";
+    print(noEvens);
     
-
-    
+		// no need to dealloc since list becomes empty
+		
     return 0;
 
 }

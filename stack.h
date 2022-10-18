@@ -29,6 +29,7 @@ Stack<T>::~Stack() {
 
 }
 
+// returns if the stack is empty or not
 template <typename T>
 bool Stack<T>::empty() const {
     if(size() > 0){
@@ -37,16 +38,20 @@ bool Stack<T>::empty() const {
     return true;
 }
 
+//uses vector::size() to return the size of the stack
 template <typename T>
 size_t Stack<T>::size() const {
     return std::vector<T>::size();
 }
 
+//pushes an item to the back of the vector ("top" of the stack)
 template <typename T>
 void Stack<T>::push(const T& item) {
     this->push_back(item);
 }
 
+//pops an item from the back of the vector ("top" of the stack), throws an exception
+// if empty
 template <typename T>
 void Stack<T>::pop() {
     if(!empty()){  
@@ -54,9 +59,12 @@ void Stack<T>::pop() {
     } else {
         throw std::underflow_error("Empty Stack!");
     }
+     
     return;
 }
 
+//returns the item at the back of the vector ("top" of the stack), throws an exception
+// if empty
 template <typename T>
 const T& Stack<T>::top() const {
     if(!empty()){ 

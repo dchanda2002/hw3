@@ -13,8 +13,8 @@ llrec-test: llrec-test.cpp llrec.h llrec.cpp
 stack-test: stack.h stack_test.cpp
 	$(CXX) $(CXXFLAGS) stack_test.cpp -o stack-test
 
-valgrind: 
-	$(VALGRIND)
+valgrind_llrec: 
+	$(VALGRIND) ./llrec-test llrec-test1.in
 
 clean:
 	rm -f *.o rh llrec-test *~
